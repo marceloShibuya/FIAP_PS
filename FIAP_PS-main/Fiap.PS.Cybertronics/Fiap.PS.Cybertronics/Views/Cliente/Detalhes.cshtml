@@ -1,0 +1,33 @@
+﻿@model Cliente
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<div class="text-right">
+    <a asp-action="Index">Voltar</a>
+</div>
+
+<h1>@Model.Nome</h1>
+
+
+<h2>Produtos</h2>
+
+<div class="row">
+    @foreach (var item in Model.Produtos)
+    {
+        <div class="col mb-2">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Robô: @item.TipoServico</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Valor: R$ @item.Preco </h6>
+                    <p class="card-text">
+
+                        Data Fabricação: @item.DataFabricacao.ToShortDateString() <br />
+                        Data Garantia: @item.DataGarantia.ToShortDateString()
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
