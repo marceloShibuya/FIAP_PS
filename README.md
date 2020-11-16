@@ -1,4 +1,3 @@
-## FIAP_PS
 
 ### Aplicação Web para a prova semestral da FIAP
 
