@@ -12,7 +12,7 @@
 <form asp-action="index" method="get" class="form-inline">
     <input placeholder="Digite o tipo" name="tipo" class="form-control" type="text" />
     <input type="submit" value="Pesquisar" class="btn btn-success ml-2" />
-</form>
+</form> <br />
 
 <div>
     Resultados encontrados: @Model.Count
@@ -29,6 +29,7 @@
         <th>Data da garantia</th>
         <th>Data da fabricação</th>
         <th>Empresa fabricante</th>
+        <th>Nome do cliente</th>
         <th></th>
     </tr>
     @foreach (var item in Model)
@@ -39,6 +40,7 @@
             <td>@item.DataGarantia.ToShortDateString()</td>
             <td>@item.DataFabricacao.ToShortDateString()</td>
             <td>@item.Empresa?.Nome</td>
+            <td>@item.Cliente?.Nome</td>
             <td>
                 <a asp-action="editar" class="btn btn-sm btn-outline-dark" asp-route-id="@item.ProdutoId">Editar</a>
 

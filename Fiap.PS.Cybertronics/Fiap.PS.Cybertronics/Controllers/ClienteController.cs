@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Fiap.PS.Cybertronics.Models;
 using Fiap.PS.Cybertronics.Persistencia;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace Fiap.PS.Cybertronics.Controllers
@@ -24,6 +25,7 @@ namespace Fiap.PS.Cybertronics.Controllers
             var cliente = _context.Clientes.Include(c => c.Produtos).Where(c => c.ClienteId == id).FirstOrDefault();
             return View(cliente);
         }
+
 
         public IActionResult Index(string nome)
         {

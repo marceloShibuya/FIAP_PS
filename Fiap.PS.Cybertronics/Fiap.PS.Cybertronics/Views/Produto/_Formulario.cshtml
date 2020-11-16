@@ -31,3 +31,10 @@
     </select>
 </div>
 
+<div class="form-group">
+    <label asp-for="Cliente"></label>
+    <select asp-for="ClienteId" class="form-control" asp-items="@ViewBag.clientes">
+        <option>Selecione</option>
+    </select>
+</div>
+
