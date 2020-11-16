@@ -4,14 +4,16 @@ using Fiap.PS.Cybertronics.Persistencia;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Fiap.PS.Cybertronics.Migrations
 {
     [DbContext(typeof(CrmContext))]
-    partial class CrmContextModelSnapshot : ModelSnapshot
+    [Migration("20201116123217_Inicio")]
+    partial class Inicio
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,7 +76,7 @@ namespace Fiap.PS.Cybertronics.Migrations
                         .HasColumnName("Id")
                         .UseIdentityColumn();
 
-                    b.Property<int?>("ClienteId")
+                    b.Property<int>("ClienteId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DataFabricacao")
@@ -157,7 +159,9 @@ namespace Fiap.PS.Cybertronics.Migrations
                 {
                     b.HasOne("Fiap.PS.Cybertronics.Models.Cliente", "Cliente")
                         .WithMany("Produtos")
-                        .HasForeignKey("ClienteId");
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Fiap.PS.Cybertronics.Models.Empresa", "Empresa")
                         .WithMany("Produtos")

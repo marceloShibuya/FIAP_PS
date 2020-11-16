@@ -1,0 +1,30 @@
+﻿@model Cliente
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h1>@Model.Nome</h1>
+<p>Email: @Model.Email</p>
+
+
+<h2>Produtos</h2>
+
+<div class="row">
+    @foreach (var item in Model.Produtos)
+    {
+        <div class="col mb-2">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">@item.TipoServico</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@item.Preco </h6>
+                    <p class="card-text">
+                        Data da Garantia: @item.DataGarantia.ToShortDateString() <br />
+                        Data de Fabricação: @item.DataFabricacao.ToShortDateString() <br />
+                    </p>
+                    <a href="#" class="card-link">Detalhes</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

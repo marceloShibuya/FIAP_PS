@@ -12,6 +12,8 @@ namespace Fiap.PS.Cybertronics.Models
         [Column("Id")]
         public int ClienteId { get; set; }
 
+        public IList<Produto> Produtos { get; set; }
+
         public string Nome { get; set; }
 
         public string Email { get; set; }

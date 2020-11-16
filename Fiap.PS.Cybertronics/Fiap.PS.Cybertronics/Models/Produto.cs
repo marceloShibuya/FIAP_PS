@@ -18,6 +18,10 @@ namespace Fiap.PS.Cybertronics.Models
 
         public Empresa Empresa { get; set; }
 
+        public int? ClienteId { get; set; }
+
+        public Cliente Cliente { get; set; }
+
         public IList<ProdutoUsuarios> ProdutoUsuarios { get; set; }
 
         [Display(Name = "Tipo de Serviço")]

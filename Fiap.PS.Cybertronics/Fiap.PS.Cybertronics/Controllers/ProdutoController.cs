@@ -32,6 +32,7 @@ namespace Fiap.PS.Cybertronics.Controllers
             ViewBag.empresas = new SelectList(lista, "EmpresaId", "Nome");
         }
 
+
         [HttpPost]
         public IActionResult Cadastrar(Produto produto)
         {

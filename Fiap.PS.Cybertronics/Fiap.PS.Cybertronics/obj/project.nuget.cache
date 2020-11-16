@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mSC5RLiXE2XY1zODnBKeVibr6mKO5h2tb9uj87RcLI3zOT4nY8VQAnoPWo1DUrOGe+POlqrp6mtg5LA60duEQg==",
+  "dgSpecHash": "dHDousSHXHyawvNb8fGnRNv3pZjDvmmOtNKu6NHUs2MR0Vu4Nvwh80SQLHD9ZeypQGHlvrtClcQHpiXD/ZJVjA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\55119\\Desktop\\Fiap.PS.Cybertronics\\Fiap.PS.Cybertronics\\Fiap.PS.Cybertronics.csproj",
+  "projectFilePath": "C:\\Users\\55119\\Documents\\GitHub\\FIAP_PS\\Fiap.PS.Cybertronics\\Fiap.PS.Cybertronics\\Fiap.PS.Cybertronics.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\55119\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\55119\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

@@ -15,6 +15,8 @@ namespace Fiap.PS.Cybertronics.Persistencia
 
         public DbSet<Usuario> Usuarios { get; set; }
 
+        public DbSet<Cliente> Clientes { get; set; }
+
         public int MyProperty { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

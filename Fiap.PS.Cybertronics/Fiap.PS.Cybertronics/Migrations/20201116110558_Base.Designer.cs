@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Fiap.PS.Cybertronics.Migrations
 {
     [DbContext(typeof(CrmContext))]
-    [Migration("20201116022345_Begin")]
-    partial class Begin
+    [Migration("20201116110558_Base")]
+    partial class Base
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,31 @@ namespace Fiap.PS.Cybertronics.Migrations
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.0");
+
+            modelBuilder.Entity("Fiap.PS.Cybertronics.Models.Cliente", b =>
+                {
+                    b.Property<int>("ClienteId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Endereco")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nome")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telefone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ClienteId");
+
+                    b.ToTable("TB_CLIENTE");
+                });
 
             modelBuilder.Entity("Fiap.PS.Cybertronics.Models.Empresa", b =>
                 {
@@ -51,6 +76,9 @@ namespace Fiap.PS.Cybertronics.Migrations
                         .HasColumnName("Id")
                         .UseIdentityColumn();
 
+                    b.Property<int>("ClienteId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("DataFabricacao")
                         .HasColumnType("datetime2")
                         .HasColumnName("Dt_Fabricacao");
@@ -69,6 +97,8 @@ namespace Fiap.PS.Cybertronics.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("ProdutoId");
+
+                    b.HasIndex("ClienteId");
 
                     b.HasIndex("EmpresaId");
 
@@ -127,9 +157,17 @@ namespace Fiap.PS.Cybertronics.Migrations
 
             modelBuilder.Entity("Fiap.PS.Cybertronics.Models.Produto", b =>
                 {
+                    b.HasOne("Fiap.PS.Cybertronics.Models.Cliente", "Cliente")
+                        .WithMany("Produtos")
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Fiap.PS.Cybertronics.Models.Empresa", "Empresa")
                         .WithMany("Produtos")
                         .HasForeignKey("EmpresaId");
+
+                    b.Navigation("Cliente");
 
                     b.Navigation("Empresa");
                 });
@@ -151,6 +189,11 @@ namespace Fiap.PS.Cybertronics.Migrations
                     b.Navigation("Produto");
 
                     b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("Fiap.PS.Cybertronics.Models.Cliente", b =>
+                {
+                    b.Navigation("Produtos");
                 });
 
             modelBuilder.Entity("Fiap.PS.Cybertronics.Models.Empresa", b =>

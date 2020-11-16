@@ -5802,11 +5802,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\55119\\Desktop\\Fiap.PS.Cybertronics\\Fiap.PS.Cybertronics\\Fiap.PS.Cybertronics.csproj",
+      "projectUniqueName": "C:\\Users\\55119\\Documents\\GitHub\\FIAP_PS\\Fiap.PS.Cybertronics\\Fiap.PS.Cybertronics\\Fiap.PS.Cybertronics.csproj",
       "projectName": "Fiap.PS.Cybertronics",
-      "projectPath": "C:\\Users\\55119\\Desktop\\Fiap.PS.Cybertronics\\Fiap.PS.Cybertronics\\Fiap.PS.Cybertronics.csproj",
+      "projectPath": "C:\\Users\\55119\\Documents\\GitHub\\FIAP_PS\\Fiap.PS.Cybertronics\\Fiap.PS.Cybertronics\\Fiap.PS.Cybertronics.csproj",
       "packagesPath": "C:\\Users\\55119\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\55119\\Desktop\\Fiap.PS.Cybertronics\\Fiap.PS.Cybertronics\\obj\\",
+      "outputPath": "C:\\Users\\55119\\Documents\\GitHub\\FIAP_PS\\Fiap.PS.Cybertronics\\Fiap.PS.Cybertronics\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\55119\\AppData\\Roaming\\NuGet\\NuGet.Config",
