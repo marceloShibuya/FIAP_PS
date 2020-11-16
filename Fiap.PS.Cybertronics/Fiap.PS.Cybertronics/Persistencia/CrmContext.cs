@@ -28,7 +28,7 @@ namespace Fiap.PS.Cybertronics.Persistencia
             base.OnModelCreating(modelBuilder);
         }
 
-        public CrmContext(DbContextOptions options) : base (options)
+        public CrmContext(DbContextOptions options) : base(options)
         {
 
         }

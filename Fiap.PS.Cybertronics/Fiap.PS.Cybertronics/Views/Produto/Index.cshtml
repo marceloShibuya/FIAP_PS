@@ -1,4 +1,5 @@
-﻿@model List<Produto>
+﻿
+@model List<Produto>
 
 @{
     ViewData["Title"] = "Produtos";
@@ -27,14 +28,17 @@
         <th>Preço</th>
         <th>Data da garantia</th>
         <th>Data da fabricação</th>
+        <th>Empresa fabricante</th>
+        <th></th>
     </tr>
-    @foreach(var item in Model)
+    @foreach (var item in Model)
     {
         <tr>
             <td>@item.TipoServico</td>
             <td>@item.Preco</td>
             <td>@item.DataGarantia.ToShortDateString()</td>
             <td>@item.DataFabricacao.ToShortDateString()</td>
+            <td>@item.Empresa?.Nome</td>
             <td>
                 <a asp-action="editar" class="btn btn-sm btn-outline-dark" asp-route-id="@item.ProdutoId">Editar</a>
 

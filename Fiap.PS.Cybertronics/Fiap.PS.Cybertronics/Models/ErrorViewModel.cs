@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 
-namespace Fiap.Aula04.Web.Models
+namespace Fiap.PS.Cybertronics.Models
 {
     public class ErrorViewModel
     {

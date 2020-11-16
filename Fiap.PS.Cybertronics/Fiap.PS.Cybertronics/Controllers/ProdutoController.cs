@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Fiap.PS.Cybertronics.Models;
 using Fiap.PS.Cybertronics.Persistencia;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace Fiap.PS.Cybertronics.Controllers
 {
@@ -20,8 +22,14 @@ namespace Fiap.PS.Cybertronics.Controllers
         [HttpGet]
         public IActionResult Cadastrar()
         {
-            var lista = _context.Produtos.ToList();
+            CarregarEmpresas();
             return View();
+        }
+
+        private void CarregarEmpresas()
+        {
+            var lista = _context.Empresas.ToList();
+            ViewBag.empresas = new SelectList(lista, "EmpresaId", "Nome");
         }
 
         [HttpPost]
@@ -36,7 +44,8 @@ namespace Fiap.PS.Cybertronics.Controllers
         [HttpGet]
         public IActionResult Editar(int id)
         {
-            var produto = _context.Produtos.Find(id);
+            CarregarEmpresas();
+            var produto = _context.Produtos.Include(p => p.Empresa).Where(p => p.ProdutoId == id).FirstOrDefault();
             return View(produto);
         }
 
@@ -63,7 +72,7 @@ namespace Fiap.PS.Cybertronics.Controllers
             var qtd = _context.Produtos.Count();
             ViewBag.qtd = qtd;
 
-            var lista = _context.Produtos.Where(p => p.TipoServico == tipo || tipo == 0).OrderBy(p => p.Preco).ToList();
+            var lista = _context.Produtos.Where(p => p.TipoServico == tipo || tipo == 0).OrderBy(p => p.Preco).Include(p => p.Empresa).ToList();
             return View(lista);
         }
     }

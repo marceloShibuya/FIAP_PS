@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Fiap.PS.Cybertronics.Models;
-using Fiap.Aula04.Web.Models;
 
 namespace Fiap.PS.Cybertronics.Controllers
 {
