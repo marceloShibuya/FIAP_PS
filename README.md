@@ -4,5 +4,3 @@
 
 ### Curso: Análise e Desenvolvimento de Sistemas
 
-[x] Plataforma .NET
-[x] Linguagem de programação C#
