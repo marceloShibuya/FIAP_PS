@@ -1,0 +1,18 @@
+﻿@model Produto
+
+@{
+    ViewData["Title"] = "Edição do Produto";
+}
+
+<h1>Editar produto</h1>
+
+<form asp-action="editar">
+
+    <input asp-for="ProdutoId" />
+
+    <partial name="_Formulario" />
+
+    <input type="submit" class="btn btn-primary" value="Editar" />
+    <a asp-action="Index" class="btn btn-danger">Voltar</a>
+
+</form>

@@ -1,0 +1,72 @@
+﻿@model List<Produto>
+
+@{
+    ViewData["Title"] = "Produtos";
+}
+
+<h1>Produtos Disponíveis: <b>@ViewBag.qtd</b></h1>
+
+<msg mensagem="@TempData["msg"]"></msg>
+
+<form asp-action="index" method="get" class="form-inline">
+    <input placeholder="Digite o tipo" name="tipo" class="form-control" type="text" />
+    <input type="submit" value="Pesquisar" class="btn btn-success ml-2" />
+</form>
+
+<div>
+    Resultados encontrados: @Model.Count
+</div>
+
+<div class="text-right">
+    <a asp-action="cadastrar">Cadastrar</a>
+</div>
+
+<table class="table">
+    <tr>
+        <th>Tipo de serviço</th>
+        <th>Preço</th>
+        <th>Data da garantia</th>
+        <th>Data da fabricação</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.TipoServico</td>
+            <td>@item.Preco</td>
+            <td>@item.DataGarantia.ToShortDateString()</td>
+            <td>@item.DataFabricacao.ToShortDateString()</td>
+            <td>
+                <a asp-action="editar" class="btn btn-sm btn-outline-dark" asp-route-id="@item.ProdutoId">Editar</a>
+
+                <button onclick="produto.value = @item.ProdutoId" type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+                    Excluir
+                </button>
+            </td>
+        </tr>
+    }
+</table>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Deseja excluir o produto?
+            </div>
+            <div class="modal-footer">
+                <form asp-action="remover">
+                    <input type="hidden" name="id" id="produto" />
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                    <button type="submit" class="btn btn-danger">Sim</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
