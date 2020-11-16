@@ -20,6 +20,7 @@ namespace Fiap.PS.Cybertronics.Models
 
         public int? ClienteId { get; set; }
 
+
         public Cliente Cliente { get; set; }
 
         public IList<ProdutoUsuarios> ProdutoUsuarios { get; set; }
